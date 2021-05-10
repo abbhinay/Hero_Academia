@@ -1,11 +1,15 @@
 require('dotenv').config();
 const express = require('express');
 const app = express();
-const { MD5 } = require('crypto-js');
-const axios = require('axios');
+const searchComics = require('./routes/searchComics');
+const autocomplete = require('./routes/autocomplete');
+const searchCharacter = require('./routes/searchCharacter');
 
-const public_key = process.env.Public_Key;
-const private_key = process.env.Private_Key;
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+app.use('/api/search', searchComics);
+app.use('/api/autocomplete', autocomplete);
+app.use('/api/character', searchCharacter);
 
 app.get('/', (req, res) => {
   return res.status(200).json({
