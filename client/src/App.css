@@ -382,6 +382,12 @@ table th {
   margin-right: 0.6rem;
 }
 
+.autoComplete {
+  z-index: -1;
+  position: unset;
+  color: #333;
+}
+
 /* Mobile Styles */
 @media (max-width: 700px) {
   .hide-sm {
