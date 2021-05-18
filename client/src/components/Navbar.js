@@ -13,7 +13,7 @@ const Navbar = (props) => {
       </h1>
       <ul>
         <li>
-          <AutoComplete />
+          <AutoComplete hero={props.hero} />
         </li>
         {/* <li>
           <div>Home</div>

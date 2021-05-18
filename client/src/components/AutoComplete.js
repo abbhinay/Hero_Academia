@@ -32,6 +32,7 @@ const AutoComplete = (props) => {
   const submitValue = (item) => {
     setHero(item);
     setItems([]);
+    props.hero(item.id);
   };
 
   return (
@@ -42,14 +43,19 @@ const AutoComplete = (props) => {
           <input
             type='text'
             placeholder='Type to search..'
-            onKeyUp={(event) => {
+            value={value}
+            onChange={(event) => {
               if (event.code === 'Enter') getItem(event);
               else change(event);
             }}
           />
           <div className='autocom-box'>
             {items.map((item) => (
-              <li className='autoComplete' onClick={() => submitValue(item)}>
+              <li
+                className='autoComplete'
+                key={item.id}
+                onClick={() => submitValue(item)}
+              >
                 {item.name}
               </li>
             ))}
