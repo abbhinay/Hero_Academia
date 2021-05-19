@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import AutoComplete from '../components/AutoComplete';
+import marvelLogo from '../assets/marvel-logo.jpg';
 
 //import { Link } from 'react-router-dom';
 
@@ -8,21 +9,12 @@ const Navbar = (props) => {
   const { icon, title } = props;
   return (
     <nav className='navbar bg-primary'>
-      <h1>
-        <i className={icon} /> {title}
-      </h1>
+      <h1 className='heroHeading'>{title}</h1>
+      <img src={marvelLogo} alt='marvel logo' className='logo' />
       <ul>
         <li>
-          <AutoComplete />
+          <AutoComplete hero={props.hero} />
         </li>
-        {/* <li>
-          <div>Home</div>
-          <Link to='/'>Home</Link>
-        </li>
-        <li>
-          <div>About</div>
-          <Link to='/about'>About</Link>
-        </li> */}
       </ul>
     </nav>
   );
