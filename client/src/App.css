@@ -5,10 +5,15 @@
 } */
 
 @import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@300&display=swap');
+/* font-family: 'Bangers', cursive; */
+/* font-family: 'Roboto', sans-serif; */
+/* font-family: 'Comic Neue', cursive; */
 
 /* Global Styles */
 :root {
-  --primary-color: #dc3545;
+  --primary-color: #e61922;
   --dark-color: #333333;
   --light-color: #f4f4f4;
   --danger-color: #dc3545;
@@ -22,11 +27,22 @@
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Comic Neue', cursive;
   font-size: 1rem;
   line-height: 1.6;
-  background-color: #fff;
+  background-image: url('./assets/marvel-back.jpg');
+  /* background-color: #fff; */
   color: #333;
+}
+
+.heroHeading {
+  font-family: 'Bangers', cursive;
+  font-size: 3rem;
+  line-height: 1.6;
+}
+
+.heroInfo {
+  font-size: 1.5rem;
 }
 
 a {
@@ -44,6 +60,10 @@ ul {
 
 img {
   width: 100%;
+}
+
+.logo {
+  max-width: 10%;
 }
 
 /* Utilities */
@@ -120,6 +140,7 @@ img {
   padding: 1rem;
   border: #ccc 1px dotted;
   margin: 0.7rem 0;
+  background-color: #333333;
 }
 
 /* List */
@@ -188,6 +209,7 @@ img {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 1rem;
+  background-color: #fff;
 }
 
 .grid-3 {

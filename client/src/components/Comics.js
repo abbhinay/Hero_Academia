@@ -3,6 +3,7 @@ import axios from 'axios';
 
 const Comics = (props) => {
   const [comics, setComics] = useState([]);
+  const [showComics, setShowComics] = useState(false);
 
   const getComics = async () => {
     try {
@@ -19,6 +20,7 @@ const Comics = (props) => {
       });
       //console.log(newComics);
       setComics([...newComics]);
+      setShowComics(true);
     } catch (err) {
       console.log(err);
     }
@@ -29,15 +31,25 @@ const Comics = (props) => {
   }, [props.id]);
 
   return (
-    <div>
-      <h1>Comics</h1>
-      {comics.map((cc) => (
-        <div className='card'>
-          <img src={cc.thumbnail} alt='' />
-          <h1>{cc.title}</h1>
-        </div>
-      ))}
-    </div>
+    <>
+      {showComics && (
+        <h1
+          style={{ color: 'white', marginTop: '3rem' }}
+          className='text-center heroHeading'
+        >
+          Comics
+        </h1>
+      )}
+      <div className='grid-4'>
+        {comics.map((cc) => (
+          <div className='card'>
+            <img src={cc.thumbnail} alt='' />
+
+            <h4 style={{ color: 'white' }}>{cc.title}</h4>
+          </div>
+        ))}
+      </div>
+    </>
   );
 };
 
