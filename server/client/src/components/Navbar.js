@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import AutoComplete from '../components/AutoComplete';
+import AutoComplete from './AutoComplete';
 import marvelLogo from '../assets/marvel-logo.jpg';
 
 //import { Link } from 'react-router-dom';
