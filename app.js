@@ -28,15 +28,14 @@ app.use((req, res, next) => {
 app.use('/api/search', searchComics);
 app.use('/api/autocomplete', autocomplete);
 app.use('/api/character', searchCharacter);
+if (process.env.NODE_ENV == 'production') {
+  app.use(express.static('client/build'));
+}
 
 app.get('/', (req, res) => {
   return res.status(200).json({
     status: 'success',
   });
 });
-
-if (process.env.NODE_ENV == 'production') {
-  app.use(express.static('client/build'));
-}
 
 app.listen(process.env.PORT || 5000, () => console.log('server is running'));
