@@ -2,12 +2,13 @@ import { useState, useEffect } from 'react';
 import { Autocomplete, TextInput } from 'evergreen-ui';
 import axios from 'axios';
 import './AutoComplete.css';
+require('dotenv').config();
 
 const AutoComplete = (props) => {
-  const [url, setUrl] = useState('http://localhost:5000/');
-  if (process.env.NODE_ENV == 'production') {
-    setUrl('https://abbhinay.herokuapp.com/');
-  }
+  const [url, setUrl] = useState(process.env.URL);
+  // if (process.env.NODE_ENV == 'production') {
+  //   setUrl('https://abbhinay.herokuapp.com/');
+  // }
 
   const [value, setValue] = useState('');
   const [items, setItems] = useState([]);

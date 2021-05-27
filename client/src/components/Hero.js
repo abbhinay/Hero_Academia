@@ -1,20 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+require('dotenv').config();
 
 const Hero = (props) => {
-  const [url, setUrl] = useState('http://localhost:5000/');
-  if (process.env.NODE_ENV == 'production') {
-    setUrl('https://abbhinay.herokuapp.com/');
-  }
+  const [url, setUrl] = useState(process.env.URL);
+  // if (process.env.NODE_ENV == 'production') {
+  //   setUrl('https://abbhinay.herokuapp.com/');
+  // }
   const [hero, setHero] = useState({});
 
   const getHero = async () => {
     try {
-      const res = await axios.get(
-        `${url}api/character/${
-          props.id
-        }`
-      );
+      const res = await axios.get(`${url}api/character/${props.id}`);
       console.log(res.data);
       const newHero = {
         name: res.data.name,

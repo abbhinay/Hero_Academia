@@ -3,6 +3,7 @@ import './App.css';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Comics from './components/Comics';
+
 function App() {
   const [id, setId] = useState('');
 
