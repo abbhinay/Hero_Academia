@@ -28,6 +28,7 @@ app.use((req, res, next) => {
 app.use('/api/search', searchComics);
 app.use('/api/autocomplete', autocomplete);
 app.use('/api/character', searchCharacter);
+//app.use(express.static('client/build'));
 if (process.env.NODE_ENV == 'production') {
   app.use(express.static('client/build'));
 
