@@ -4,6 +4,11 @@ import axios from 'axios';
 import './AutoComplete.css';
 
 const AutoComplete = (props) => {
+  const [url, setUrl] = useState('http://localhost:5000/');
+  if (process.env.NODE_ENV == 'production') {
+    setUrl('https://abbhinay.herokuapp.com/');
+  }
+
   const [value, setValue] = useState('');
   const [items, setItems] = useState([]);
   const [hero, setHero] = useState({});
@@ -14,9 +19,7 @@ const AutoComplete = (props) => {
 
   const getItem = async () => {
     try {
-      const res = await axios.get(
-        `http://localhost:5000/api/autocomplete/${value}`
-      );
+      const res = await axios.get(`${url}api/autocomplete/${value}`);
       setItems((prevItem) => res.data);
     } catch (err) {
       console.log(err);
